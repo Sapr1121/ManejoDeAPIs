@@ -1,4 +1,5 @@
 from api import socrata
+import pandas as pd
 
 def atencion():
 
@@ -11,4 +12,6 @@ def atencion():
             print("Error ese numero supera al limite (Limite:1000)")
         except ValueError:
             print("Error el numero tiene que ser un entero")
-    socrata(lim,dep.upper())
+    df = socrata(lim,dep.upper())
+    df = df[["Estado","Edad", "Tipo", "Ciudad", "Departamento", "Pais de Origen",]]
+    print(df.to_string(index = False))
