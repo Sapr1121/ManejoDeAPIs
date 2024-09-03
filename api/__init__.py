@@ -10,9 +10,6 @@ def socrata(n,dep):
     for MiniDatos in results:
         x = "edad" in MiniDatos
 
-
-
-
         datos['Ciudad'].append(MiniDatos['ciudad_municipio_nom'])
         datos['Departamento'].append(MiniDatos['departamento_nom'])
         datos['Edad'].append(MiniDatos['edad'])
@@ -22,8 +19,6 @@ def socrata(n,dep):
             datos['Pais de Origen'].append(MiniDatos['pais_viajo_1_nom'])
         else:
             datos['Pais de Origen'].append("")
-
-
 
     df = pd.DataFrame.from_records(datos)
     #print("{}".format(df.to_string(index=False)))
